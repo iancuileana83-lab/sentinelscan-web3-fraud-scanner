@@ -1,0 +1,5 @@
+[functions.wallet-scan]
+verify_jwt = false
+
+[functions.tx-scan]
+verify_jwt = false
