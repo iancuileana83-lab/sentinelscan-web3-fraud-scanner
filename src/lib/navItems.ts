@@ -27,7 +27,7 @@ export const navItems: {
   { id: 'dashboard', label: 'Dashboard', Icon: LayoutDashboard },
   { id: 'wallet', label: 'Wallet Scanner', Icon: Wallet },
   { id: 'transactions', label: 'Transaction Scanner', Icon: ArrowLeftRight },
-  { id: 'reports', label: 'Security Reports', Icon: FileShield },
+  { id: 'reports', label: 'Security Reports', Icon: ShieldCheck },
   { id: 'history', label: 'Scan History', Icon: History },
   { id: 'businesses', label: 'For Businesses', Icon: Building2 },
   { id: 'api', label: 'API', Icon: Code2 },
