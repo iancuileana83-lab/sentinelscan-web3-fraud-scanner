@@ -5,6 +5,7 @@ import { AlertTriangle, CheckCircle2, ShieldAlert, FileSearch } from 'lucide-rea
 
 interface ScanResultsProps {
   scan: Scan | null;
+  isExample?: boolean;
 }
 
 const levelBanner = {
@@ -31,7 +32,7 @@ const levelBanner = {
   },
 } as const;
 
-export default function ScanResults({ scan }: ScanResultsProps) {
+export default function ScanResults({ scan, isExample }: ScanResultsProps) {
   if (!scan) {
     return (
       <div className="flex flex-col items-center justify-center h-full py-24 text-center">
@@ -53,6 +54,15 @@ export default function ScanResults({ scan }: ScanResultsProps) {
 
   return (
     <div className="space-y-6">
+      {isExample && (
+        <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-amber-500/30 bg-amber-500/10">
+          <AlertTriangle size={16} className="flex-shrink-0 text-amber-400" />
+          <p className="text-sm font-medium text-amber-300">
+            Example data — this is a sample scan, not a real result.
+          </p>
+        </div>
+      )}
+
       {/* Summary header */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Gauge */}

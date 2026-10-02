@@ -39,7 +39,7 @@ export default function RiskExplainer({ explanation, type }: RiskExplainerProps)
           </div>
           <div className="text-left">
             <h3 className="text-base font-semibold text-slate-100">
-              Explain Risk with AI
+              Risk explanation
             </h3>
             <p className="text-xs text-slate-500">
               Plain-language summary of {type} risk findings
@@ -109,12 +109,12 @@ export default function RiskExplainer({ explanation, type }: RiskExplainerProps)
                 </div>
               </div>
 
-              {/* AI interpretation */}
+              {/* Risk interpretation */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Brain size={16} className="text-sky-400" />
                   <h4 className="text-sm font-semibold text-slate-100">
-                    AI Interpretation
+                    Risk Interpretation
                   </h4>
                   <span className="text-xs text-slate-500 bg-slate-700/40 px-2 py-0.5 rounded-full">
                     Generated analysis
@@ -156,7 +156,7 @@ export default function RiskExplainer({ explanation, type }: RiskExplainerProps)
                 />
                 <p className="text-xs text-slate-600 leading-relaxed">
                   The "Detected On-Chain Evidence" section lists facts directly
-                  retrieved from the blockchain. The "AI Interpretation" section
+                  retrieved from the blockchain. The "Risk Interpretation" section
                   is generated analysis of those facts — it describes risk
                   likelihood and patterns, not definitive proof of fraud. Always
                   conduct additional due diligence for high-value decisions.

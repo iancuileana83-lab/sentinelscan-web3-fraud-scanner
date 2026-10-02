@@ -43,6 +43,9 @@ export default function ScanHistory({
       <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-700/50">
         <Clock size={16} className="text-slate-400" />
         <h3 className="text-sm font-semibold text-slate-200">Recent Scans</h3>
+        <span className="ml-1.5 text-xs font-medium text-amber-400/80 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full">
+          Example data
+        </span>
         <span className="ml-auto text-xs text-slate-500 bg-slate-700/40 px-2 py-0.5 rounded-full">
           {scans.length}
         </span>

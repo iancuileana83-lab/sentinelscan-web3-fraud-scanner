@@ -8,8 +8,6 @@ import {
   Landmark,
 } from 'lucide-react';
 
-import { ShieldAlert } from 'lucide-react';
-
 const fallbackEntry = { Icon: ShieldAlert, color: 'text-slate-400' };
 
 export const categoryIcon: Record<

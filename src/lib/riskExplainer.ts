@@ -281,7 +281,7 @@ export function explainTxRisk(
       'Multiple high-risk indicators were detected. Treat this transaction with caution and avoid replicating or interacting with the addresses involved until you understand the context. If you received this transaction unexpectedly, do not interact with any contracts it references and verify through independent sources.';
   }
 
-  const summary = `This transaction on ${data.network} shows ${levelRiskWord(assessment.level)} profile with a score of ${assessment.score}/100. ${assessment.riskFactors.length} risk factor(s) were identified from the retrieved on-chain data. The explanation below clearly separates detected on-chain evidence from AI-generated interpretation.`;
+  const summary = `This transaction on ${data.network} shows ${levelRiskWord(assessment.level)} profile with a score of ${assessment.score}/100. ${assessment.riskFactors.length} risk factor(s) were identified from the retrieved on-chain data. The explanation below clearly separates detected on-chain evidence from rule-based interpretation.`;
 
   return { summary, detectedEvidence, interpretation, recommendation };
 }

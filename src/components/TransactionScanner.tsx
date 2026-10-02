@@ -417,7 +417,7 @@ export default function TransactionScanner() {
             </div>
           </div>
 
-          {/* AI Risk Explanation */}
+          {/* Risk Explanation */}
           <RiskExplainer
             explanation={explainTxRisk(txData, riskAssessment)}
             type="transaction"

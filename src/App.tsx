@@ -307,7 +307,10 @@ function App() {
                     </p>
                   </div>
                 ) : (
-                  <ScanResults scan={activeScan} />
+                  <ScanResults
+                    scan={activeScan}
+                    isExample={activeScan ? dummyScans.includes(activeScan) : false}
+                  />
                 )}
               </section>
             </div>

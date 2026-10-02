@@ -351,7 +351,7 @@ export default function WalletScanner() {
             </div>
           </div>
 
-          {/* AI Risk Explanation */}
+          {/* Risk Explanation */}
           <RiskExplainer
             explanation={explainWalletRisk(walletData, riskAssessment)}
             type="wallet"
