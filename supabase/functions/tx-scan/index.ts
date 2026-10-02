@@ -48,20 +48,23 @@ interface TxData {
 
 const ETH_CHAINS: Record<
   string,
-  { apiBase: string; apiKeyEnv: string; label: string }
+  { apiBase: string; chainId: number; apiKeyEnv: string; label: string }
 > = {
   ethereum: {
-    apiBase: "https://api.etherscan.io/api",
+    apiBase: "https://api.etherscan.io/v2/api",
+    chainId: 1,
     apiKeyEnv: "ETHERSCAN_API_KEY",
     label: "Ethereum",
   },
   base: {
-    apiBase: "https://api.basescan.org/api",
+    apiBase: "https://api.etherscan.io/v2/api",
+    chainId: 8453,
     apiKeyEnv: "ETHERSCAN_API_KEY",
     label: "Base",
   },
   arbitrum: {
-    apiBase: "https://api.arbiscan.io/api",
+    apiBase: "https://api.etherscan.io/v2/api",
+    chainId: 42161,
     apiKeyEnv: "ETHERSCAN_API_KEY",
     label: "Arbitrum",
   },
@@ -75,6 +78,7 @@ async function fetchEtherscanTx(
   const apiKey = Deno.env.get(chain.apiKeyEnv);
 
   const params = new URLSearchParams({
+    chainid: String(chain.chainId),
     module: "proxy",
     action: "eth_getTransactionByHash",
     txhash: txHash,
@@ -93,6 +97,7 @@ async function fetchEtherscanTx(
   const tx = txBody.result;
 
   const receiptParams = new URLSearchParams({
+    chainid: String(chain.chainId),
     module: "proxy",
     action: "eth_getTransactionReceipt",
     txhash: txHash,
@@ -115,6 +120,7 @@ async function fetchEtherscanTx(
   const blockNum = parseInt(tx.blockNumber ?? "0x0", 16);
 
   const blockParams = new URLSearchParams({
+    chainid: String(chain.chainId),
     module: "proxy",
     action: "eth_getBlockByNumber",
     tag: tx.blockNumber ?? "0x0",
@@ -132,6 +138,7 @@ async function fetchEtherscanTx(
   }
 
   const tokenParams = new URLSearchParams({
+    chainid: String(chain.chainId),
     module: "account",
     action: "tokentx",
     txhash: txHash,
@@ -159,6 +166,7 @@ async function fetchEtherscanTx(
   }
 
   const internalParams = new URLSearchParams({
+    chainid: String(chain.chainId),
     module: "account",
     action: "txlistinternal",
     txhash: txHash,

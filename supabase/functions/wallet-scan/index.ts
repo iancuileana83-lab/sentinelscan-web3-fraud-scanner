@@ -44,20 +44,23 @@ interface WalletData {
 
 const ETH_CHAINS: Record<
   string,
-  { apiBase: string; apiKeyEnv: string; label: string }
+  { apiBase: string; chainId: number; apiKeyEnv: string; label: string }
 > = {
   ethereum: {
-    apiBase: "https://api.etherscan.io/api",
+    apiBase: "https://api.etherscan.io/v2/api",
+    chainId: 1,
     apiKeyEnv: "ETHERSCAN_API_KEY",
     label: "Ethereum",
   },
   base: {
-    apiBase: "https://api.basescan.org/api",
+    apiBase: "https://api.etherscan.io/v2/api",
+    chainId: 8453,
     apiKeyEnv: "ETHERSCAN_API_KEY",
     label: "Base",
   },
   arbitrum: {
-    apiBase: "https://api.arbiscan.io/api",
+    apiBase: "https://api.etherscan.io/v2/api",
+    chainId: 42161,
     apiKeyEnv: "ETHERSCAN_API_KEY",
     label: "Arbitrum",
   },
@@ -71,6 +74,7 @@ async function fetchEtherscanData(
   const apiKey = Deno.env.get(chain.apiKeyEnv);
 
   const params = new URLSearchParams({
+    chainid: String(chain.chainId),
     module: "account",
     action: "txlist",
     address,
@@ -103,6 +107,7 @@ async function fetchEtherscanData(
   const transactions: TxRecord[] = txBody.result || [];
 
   const tokenParams = new URLSearchParams({
+    chainid: String(chain.chainId),
     module: "account",
     action: "tokentx",
     address,
