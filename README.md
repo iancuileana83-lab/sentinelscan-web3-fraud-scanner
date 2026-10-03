@@ -13,7 +13,7 @@ Web3 fraud and compliance scanner. SentinelScan helps users check Web3 projects,
 
 ## Supported networks
 
-Ethereum, Base and Arbitrum (via Etherscan API V2), and Solana.
+Ethereum and Arbitrum (via Etherscan API V2). Base requires a paid Etherscan plan and is not available in the current version. A Solana option exists in the interface but has not been tested yet.
 
 ## Tech stack
 
